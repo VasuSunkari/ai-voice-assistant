@@ -1,7 +1,7 @@
+// pages/api/chat.ts
 import type { NextApiRequest, NextApiResponse } from 'next';
 
-// pages/api/chat.ts
-export default async function handler(req, res) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   try {
     const { transcript } = req.body;
 
@@ -9,7 +9,7 @@ export default async function handler(req, res) {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${process.env.OPENAI_API_KEY}`, // make sure this exists
+        Authorization: `Bearer ${process.env.OPENAI_API_KEY}`, // ✅ Make sure this is defined in .env
       },
       body: JSON.stringify({
         model: "gpt-3.5-turbo",
