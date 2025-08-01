@@ -8,8 +8,8 @@ export default function Home() {
   const [recording, setRecording] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
 
-  const whisperWorker = useRef<Worker>();
-  const ttsWorker = useRef<Worker>();
+  const whisperWorker = useRef<Worker | null>(null);
+  const ttsWorker = useRef<Worker | null>(null);
   const mediaRecorder = useRef<MediaRecorder | null>(null);
   const chunks = useRef<BlobPart[]>([]);
 
